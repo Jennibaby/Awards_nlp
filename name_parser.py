@@ -1,8 +1,6 @@
 import nltk
 from nameparser.parser import HumanName
 
-#nltk.download('taggers')
-
 def get_human_names(text):
     tokens = nltk.tokenize.word_tokenize(text)
     pos = nltk.pos_tag(tokens)
