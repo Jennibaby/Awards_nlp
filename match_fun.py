@@ -22,7 +22,7 @@ def get_bigram_list_match_tweets(tweets, words_to_match):
             if key in dKey:
                 del d[dKey]
 
-    sorted_vals = sorted(d.iteritems(), key =lambda (k,v): v, reverse=True)
+    sorted_vals = sorted(d.iteritems(), key=lambda (k,v): v, reverse=True)
     return sorted_vals
 
 ''' Read in all twitter data and sort data by co-appearance with list of tags'''
@@ -37,7 +37,7 @@ def get_list_match_tweets(tweets, words_to_match):
     for key in ignore_list:
         if key in d.keys():
             del d[key]
-    pos_hosts = sorted(d.iteritems(), key =lambda (k,v): v, reverse=True)
+    pos_hosts = sorted(d.iteritems(), key=lambda(k,v): v, reverse=True)
     return pos_hosts
 
 def match_all_words(tweet, words_to_match):
