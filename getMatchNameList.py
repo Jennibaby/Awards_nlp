@@ -310,8 +310,9 @@ def notConsistIgnoreList(name,ignoreList):
     return True
 
 # return winnerDict - key is the name of award
-def getWinner(twitters, twittersLower, featureList,ignoreList):
+def getWinner(twitters, twittersLower, featureList, ignoreList):
     winnerDict = {}
+    experimentDict = {}
     j = 0
     for idx in range(0, len(twitters)):
         if isMatchFeature(twittersLower[idx], featureList):
@@ -330,7 +331,11 @@ def getWinner(twitters, twittersLower, featureList,ignoreList):
                         continue
 
                 else:
-                    continue
+                    # continue
+                    experimentDict = extractNameOfProduct(twittersLower[idx], featureList, ignoreList, award, experimentDict)
+                    # print(twitters[idx])
+                    # print(pos)
+                    # print(sentt) # Prints nltk subtree
 
 
                 for leaf in subtree.leaves():
@@ -362,16 +367,51 @@ def getWinner(twitters, twittersLower, featureList,ignoreList):
 
     print (j)
     print (winnerDict)
+    print(experimentDict)
     return winnerDict  
 
 
 #winnerFeature = [["wins", "won", "winning", "winner"]]
 #nominationFeature = [["nomination", "nominations", "nominate", "nominates","nominee","nominees","nominator","nominators"]]
 
-    # def extractNameOfProduct(twittertokens):
+def extractNameOfProduct(twittertokens, featureList, ignoreList, award, dict):
     #     xxx wins/won/winning/winner xxx
-        
-    #     return name 
+    anagramList = []
+    for t in range(0, len(twittertokens)-3):
+        temp1 = twittertokens[t]
+        temp2 = twittertokens[t] + ' ' + twittertokens[t+1]
+        temp3 = twittertokens[t] + ' ' + twittertokens[t+1] + twittertokens[t + 2]
+        temp4 = twittertokens[t] + ' ' + twittertokens[t+1] + twittertokens[t + 2] + twittertokens[t+3]
+        anagramList.append(temp1)
+        anagramList.append(temp2)
+        anagramList.append(temp3)
+        anagramList.append(temp4)
+    for a in anagramList:
+        should_remove = False
+        for f in ignoreList:
+            if f in a:
+                should_remove = True
+        if should_remove == True:
+                continue
+        else:
+            if f in a:
+                anagramList.remove(a)
+                removed = True
+            else:
+                if award not in dict:
+                    dict[award] = {}
+                    dict[award][a[:-1]] = 1
+                elif a[:-1] not in dict[award]:
+                        dict[award][a[:-1]] = 1
+                else:
+                    dict[award][a[:-1]] = dict[award][a[:-1]] + 1
+    return dict
+
+
+
+
+    name = "placeholder"
+    return name
 
     # (1) xxx xxx won xxx drama xxx  
     # (2) 

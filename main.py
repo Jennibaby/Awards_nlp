@@ -47,17 +47,17 @@ def main():
 
     
     (twitterTokens,twitterLowerTokens) = parserTwitter.readTwitterTokens(twitterTokensFile,twitterLowerTokensFile)
-    print ("name of host")
-    getMatchNameList.getHost(twitterTokens,twitterLowerTokens,hostFeature,namesIgnoreList)
+    # print ("name of host")
+    # getMatchNameList.getHost(twitterTokens,twitterLowerTokens,hostFeature,namesIgnoreList)
     # extract names of presenters
     #print ("name of presenter")
     #getMatchNameList.getPresenter(twitterTokens,twitterLowerTokens,presenterFeature,namesIgnoreList)
     # print ("candidates of presenter")
     # getMatchNameList.getMatchUnigramList(twitterTokens,twitterLowerTokens,presenterFeature,namesIgnoreList)
-    #print ("name of winner")
-    #getMatchNameList.getWinner(twitterTokens,twitterLowerTokens,winnerFeature,namesIgnoreList)
-    #print ("name of nominees")
-    #getMatchNameList.getWinner(twitterTokens,twitterLowerTokens,winnerFeature,nominationFeature)
+    print ("name of winner")
+    getMatchNameList.getWinner(twitterTokens,twitterLowerTokens,winnerFeature,namesIgnoreList)
+    # print ("name of nominees")
+    # getMatchNameList.getWinner(twitterTokens,twitterLowerTokens,winnerFeature,nominationFeature)
 
 
 
