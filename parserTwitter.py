@@ -53,7 +53,7 @@ def cutRT(twitter_word_list):
 
 
 
-def getTwitterContent(file):
+def getTwitterContent(file,twitterTokensFile,twitterLowerTokensFile):
     twitterlist = readTwitterContent(file)
     #twitterlist = parserTwitter.filterById(twitterlist)
     twitterTokens = []
@@ -72,13 +72,13 @@ def getTwitterContent(file):
         twitterLowerTokens.append(cutRT(tokensList))
         #twitterLowerTokens.append(tokensList)
 
-    pickle.dump(twitterTokens, open("twitterTokens.txt", "wb"))
-    pickle.dump(twitterLowerTokens, open("twitterLowerTokens.txt", "wb"))
+    pickle.dump(twitterTokens, open(twitterTokensFile, "wb"))
+    pickle.dump(twitterLowerTokens, open(twitterLowerTokensFile, "wb"))
     return twitterTokens,twitterLowerTokens
 
-def readTwitterTokens():
-    twitterTokens = pickle.load(open("twitterTokens.txt", "rb"))
-    twitterLowerTokens = pickle.load(open("twitterTokens.txt", "rb"))
+def readTwitterTokens(twitterTokensFile,twitterLowerTokensFile):
+    twitterTokens = pickle.load(open(twitterTokensFile, "rb"))
+    twitterLowerTokens = pickle.load(open(twitterLowerTokensFile, "rb"))
     return twitterTokens,twitterLowerTokens
 
 

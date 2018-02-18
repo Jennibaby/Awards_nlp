@@ -2,7 +2,7 @@ import parserTwitter
 import getMatchNameList
 
 presenterFeature = [["presenter"], ["presents"], ["present"], ["presented"], ["presenting"]] # delete ["present"]
-
+hostFeature = ["host","hosts","hosted","hosting"]
 
 def main():
     twitterTokensFile = "twitterTokens.txt"
