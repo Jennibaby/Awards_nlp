@@ -327,8 +327,10 @@ def getWinner(twitters, twittersLower, featureList,ignoreList):
                 if isPerson:
                     if subtree.label() != 'PERSON':
                         continue
+
                 else:
                     continue
+
 
                 for leaf in subtree.leaves():
                     person.append(leaf[0])
@@ -360,3 +362,17 @@ def getWinner(twitters, twittersLower, featureList,ignoreList):
     print (j)
     print (winnerDict)
     return winnerDict  
+
+
+#winnerFeature = [["wins", "won", "winning", "winner"]]
+#nominationFeature = [["nomination", "nominations", "nominate", "nominates","nominee","nominees","nominator","nominators"]]
+
+    # def extractNameOfProduct(twittertokens):
+    #     xxx wins/won/winning/winner xxx
+        
+    #     return name 
+
+    # (1) xxx xxx won xxx drama xxx  
+    # (2) 
+
+

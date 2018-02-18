@@ -38,8 +38,12 @@ strategist for ConvergEx Group, has remarked on the effect of increasing
 use of Bitcoin and its restricted supply, noting.
 """
 
+text = """
+Kelly Clarkson and John present his paper
+"""
 names = get_human_names(text)
-print "LAST, FIRST"
+print (names)
+print ("LAST, FIRST")
 for name in names:
     last_first = HumanName(name).last + ', ' + HumanName(name).first
-    print last_first
+    print (last_first)
