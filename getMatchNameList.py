@@ -5,8 +5,8 @@ import nltk
 #presenterFeature = [["presenter"], ["presents"], ["present"], ["presented"], ["presenting"]]
 
 # I use two methods to extract name, and find the second method is better
-ignoreList = ["â","golden","globe","awards","goldenglobes","ne"]
-def getMatchUnigramList(twitters, twittersLower, featureList):
+#ignoreList = ["â","golden","globe","awards","goldenglobes","ne"]
+def getMatchUnigramList(twitters, twittersLower, featureList,ignoreList):
     #d = defaultdict(int)
     UnigramsListMethod1 = []
     UnigramsListMethod2 = []
@@ -43,7 +43,7 @@ def getMatchUnigramList(twitters, twittersLower, featureList):
                 if len(person) > 1: #avoid grabbing lone surnames
                     for part in person:
                         name += part + ' '
-                    if name[:-1] not in UnigramsListMethod2:
+                    if name[:-1] not in UnigramsListMethod2 and notConsistIgnoreList(name[:-1],ignoreList):
                         print ("humanname:%s" % name[:-1])
                         j = j + 1
                         UnigramsListMethod2.append(name[:-1])
@@ -70,3 +70,12 @@ def isMatchFeature(twittertokens,featureList):
         if res:
             return True
     return False
+
+def notConsistIgnoreList(name,ignoreList):
+    names = name.split(" ")
+    for n in names:
+        if n.lower() in ignoreList:
+            return False
+    return True
+    
+    
