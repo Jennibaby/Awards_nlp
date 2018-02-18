@@ -1,5 +1,7 @@
+#-*- coding: utf-8 -*-
 import parserTwitter
 import getMatchNameList
+
 
 
 presenterFeature = [["presenter","presents","presented","presenting"]] # delete ["present"]
@@ -41,21 +43,21 @@ def main():
     twitterLowerTokensFile = "twitterLowerTokens.txt"
     #read and tokenize gg2018.json, and then write them into to files 
     #only run once, and then comment the following line to reduce the runtime 
-    #parserTwitter.getTwitterContent('gg2018.json',twitterTokensFile,twitterLowerTokensFile)
+    # parserTwitter.getTwitterContent('Files\\gg2018.json',twitterTokensFile,twitterLowerTokensFile)
 
     
     (twitterTokens,twitterLowerTokens) = parserTwitter.readTwitterTokens(twitterTokensFile,twitterLowerTokensFile)
     print ("name of host")
     getMatchNameList.getHost(twitterTokens,twitterLowerTokens,hostFeature,namesIgnoreList)
-    extract names of presenters
-    print ("name of presenter")
-    getMatchNameList.getPresenter(twitterTokens,twitterLowerTokens,presenterFeature,namesIgnoreList)
+    # extract names of presenters
+    #print ("name of presenter")
+    #getMatchNameList.getPresenter(twitterTokens,twitterLowerTokens,presenterFeature,namesIgnoreList)
     # print ("candidates of presenter")
     # getMatchNameList.getMatchUnigramList(twitterTokens,twitterLowerTokens,presenterFeature,namesIgnoreList)
-    print ("name of winner")
-    getMatchNameList.getWinner(twitterTokens,twitterLowerTokens,winnerFeature,namesIgnoreList)
-    print ("name of nominees")
-    getMatchNameList.getWinner(twitterTokens,twitterLowerTokens,winnerFeature,nominationFeature)
+    #print ("name of winner")
+    #getMatchNameList.getWinner(twitterTokens,twitterLowerTokens,winnerFeature,namesIgnoreList)
+    #print ("name of nominees")
+    #getMatchNameList.getWinner(twitterTokens,twitterLowerTokens,winnerFeature,nominationFeature)
 
 
 

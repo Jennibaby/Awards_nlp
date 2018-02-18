@@ -1,6 +1,7 @@
+#-*- coding: utf-8 -*-
 import parserTwitter
 import re
-import nltk
+import nltk # says that it is not installed but program ran correctly
 
 #presenterFeature = [["presenter"], ["presents"], ["present"], ["presented"], ["presenting"]]
 

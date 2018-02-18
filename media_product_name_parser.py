@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import nltk
 from nameparser.parser import HumanName
 
